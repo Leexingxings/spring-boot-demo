@@ -1,0 +1,30 @@
+spring:
+    profiles:
+        active: dev
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:mysql://localhost:3306/personal
+        username: root
+        password: root
+        hikari:
+        connection-timeout: 5000
+        maximum-pool-size: 25
+
+server:
+    port: 8001
+
+#mybatis&&通用Mapper
+#扫描实力类的所在包
+mybatis:
+  #如果不是纯注解 mapper接口对应的.xml文件
+  mapper-locations: classpath:/com/jason/demo/mapper/xml/*Mapper.xml
+  #通用mapper的所在接口名称 不只是包名
+    mapper.mappers=yiche.com.mappers.MyMapper
+  #数据库
+    mapper.identity=MYSQL
+    ---------------------
+    作者：meihuiziaaaaaa
+    来源：CSDN
+    原文：https://blog.csdn.net/didi7696/article/details/80164360
+    版权声明：本文为博主原创文章，转载请附上博文链接！
