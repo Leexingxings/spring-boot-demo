@@ -2,6 +2,8 @@ package com.jason.demo.mapper.user;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jason.demo.entity.user.User;
+import javafx.scene.control.Pagination;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -11,8 +13,11 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<User> {
 
     /**
-     * 获取所有记录
-     * @return List
+     * 获取分页记录
+     * @param page
+     * @param name
+     * @return
      */
-    List<User> selectMethod();
+    @Select("selectUserList")
+    List<User> selectUserList(Pagination page, String name);
 }

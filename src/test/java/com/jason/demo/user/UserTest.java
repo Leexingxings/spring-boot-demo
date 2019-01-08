@@ -25,7 +25,6 @@ public class UserTest {
         System.out.println(("----- selectAll method test ----"));
 //        List<User> userList = userMapper.selectList(null);
 
-
         Map<String, Object> map = new HashMap<>();
         map.put("name", "Adriel West");
         map.put("age", 0);
@@ -36,6 +35,4 @@ public class UserTest {
 //        Assert.assertEquals(5, userList.size());
 //        userList.forEach(System.out::println);
     }
-
 }
-

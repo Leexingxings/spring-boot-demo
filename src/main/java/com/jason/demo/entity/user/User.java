@@ -3,6 +3,7 @@ package com.jason.demo.entity.user;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
  * 用户表
  */
 @Data
+@Accessors(chain = true)
 @TableName("users")
 public class User extends Model<User> {
     /**

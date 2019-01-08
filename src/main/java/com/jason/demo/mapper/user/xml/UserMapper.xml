@@ -10,8 +10,7 @@
         <result column="email" property="email"/>
     </resultMap>
 
-    <!--以下是新增的方法-->
-    <select id="selectMethod" resultType="com.jason.demo.entity.user.User">
-        select * from users;
-    </select>
+    <!--<select id="selectUserList" resultType="com.jason.demo.entity.user.User">-->
+        <!--select * from users where name=#{name};-->
+    <!--</select>-->
 </mapper>
