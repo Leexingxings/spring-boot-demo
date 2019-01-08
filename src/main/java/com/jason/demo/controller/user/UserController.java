@@ -2,7 +2,7 @@ package com.jason.demo.controller.user;
 
 import com.jason.demo.entity.user.User;
 import com.jason.demo.service.user.UserServiceContract;
-import io.swagger.annotations.Api;
+//import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/api/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-@Api(tags = "用户管理")
+//@Api(tags = "用户管理")
 public class UserController {
 
     @Autowired

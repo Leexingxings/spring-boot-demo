@@ -86,7 +86,6 @@
             <!--引入mapper对应的xml文件-->
             <resource>
                 <directory>src/main/java</directory>
-                <filtering>false</filtering>
                 <includes>
                     <include>**/mapper/**/*Mapper.xml</include>
                 </includes>

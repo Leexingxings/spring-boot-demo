@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author jason
  */
 @SpringBootApplication
-@MapperScan("com.jason.demo.*")
+@MapperScan("com.jason.demo.mapper")
 public class DemoApplication {
 
     public static void main(String[] args) {

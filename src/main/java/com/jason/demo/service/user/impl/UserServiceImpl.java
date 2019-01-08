@@ -7,6 +7,7 @@ import com.jason.demo.mapper.user.UserMapper;
 import com.jason.demo.service.user.UserServiceContract;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public List<User> queryUserAll() {
-        return this.list(null);
+        System.out.println("hello");
+        List<User> list=new ArrayList<>();
+        return  list;
+//        return this.list(null);
     }
 
     @Override
