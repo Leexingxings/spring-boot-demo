@@ -8,15 +8,15 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * mybatis-plus 配置文件
+ *
+ * @author jason
  */
 @Configuration
 @MapperScan("com.jason.demo.mapper")
 public class MybatisPlusConfig {
     @Bean
     public PaginationInterceptor paginationInterceptor() {
-        PaginationInterceptor page = new PaginationInterceptor();
-        page.setDialectType("mysql");
-        return page;
+        return new PaginationInterceptor();
     }
 
     /**

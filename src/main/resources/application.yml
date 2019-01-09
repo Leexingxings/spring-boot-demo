@@ -17,7 +17,7 @@ server:
 #mybatis&&通用Mapper
 mybatis-plus:
     #如果不是纯注解 mapper接口对应的.xml文件
-    mapper-locations: classpath:/com/jason/demo/mapper/**/xml/*Mapper.xml
+    mapper-locations: classpath:mapper/**/*Mapper.xml
     type-aliases-package: com.jason.demo.entity
     global-config:
         #刷新mapper 调试神器
