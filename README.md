@@ -1,36 +1,20 @@
-# spring-boot demo
+### springboot2-learning-demo
 
-#### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+| 名称 | 版本 | 描述 |
+| :-----: | :-----: | :-----: |
+| java | 1.8 | java8 |
+| spring-boot-starter-web | 2.1.1.RELEASE | springboot2 |
+| mybatis-plus-boot-starter | 3.0-RC3 | mybatis-plus |
+| maven | 3.5.4 | maven3 |
+| swagger | 2.9.2 | swagger2 |
 
-#### Software Architecture
-Software architecture description
+- [x] 1. springboot2整合mybatis-plus
+- [x] 2. springboot2整合swagger2
+- [ ] 3. springboot2使用Validator校验
+- [ ] 4. springboot2使用日志记录
 
-#### Installation
+**updating...**
 
-1. xxxx
-2. xxxx
-3. xxxx
+* 此项目是作者自学java的心路历程，如发现错误请联系作者...
 
-#### Instructions
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### Contribution
-
-1. Fork the repository
-2. Create Feat_xxx branch
-3. Commit your code
-4. Create Pull Request
-
-
-#### Gitee Feature
-
-1. You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2. Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3. Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4. The most valuable open source project [GVP](https://gitee.com/gvp)
-5. The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6. The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+* [new issue](https://gitee.com/jason_stars/demo/issues)
