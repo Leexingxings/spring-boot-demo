@@ -1,13 +1,16 @@
 package com.jason.demo.service.user.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.jason.demo.base.ResponseData;
 import com.jason.demo.entity.user.User;
 import com.jason.demo.mapper.user.UserMapper;
+import com.jason.demo.response.PageResponse;
+import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
+import com.jason.demo.utils.ResponseUtil;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,10 +21,18 @@ import java.util.List;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserServiceContract {
 
+    /**
+     * 查询所有用户
+     *
+     * @return ResponseData
+     */
     @Override
-    public List<User> queryUserAll() {
-        System.out.println("hello");
-        return this.list(null);
+    public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(int pageNum, int size) {
+        EntityWrapper<User> entityWrapper = new EntityWrapper<User>();
+        Page<User> pageUser = new Page<User>(pageNum, size);
+        Page<User> data = this.selectPage(pageUser, entityWrapper);
+
+        return ResponseUtil.success(data);
     }
 
     @Override
@@ -32,8 +43,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public User queryByName(String name) {
 
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("name", name);
+//        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+//        queryWrapper.eq("name", name);
 
         return null;
 

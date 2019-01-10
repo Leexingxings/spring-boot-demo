@@ -16,4 +16,8 @@
             and name = #{name,jdbcType=VARCHAR}
         </if>
     </select>
+
+    <select id="selectPageVo" resultType="com.jason.demo.entity.user.User">
+        SELECT id,name FROM user
+    </select>
 </mapper>

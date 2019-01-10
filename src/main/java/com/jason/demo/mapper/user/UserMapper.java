@@ -1,6 +1,6 @@
 package com.jason.demo.mapper.user;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.jason.demo.entity.user.User;
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<User> {
 
     /**
-     * 获取分页记录
+     * 获取所有记录
      * @param name
      * @return
      */

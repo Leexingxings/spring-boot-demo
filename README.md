@@ -4,7 +4,7 @@
 | :-----: | :-----: | :-----: |
 | java | 1.8 | java8 |
 | spring-boot-starter-web | 2.1.1.RELEASE | springboot2 |
-| mybatis-plus-boot-starter | 3.0-RC3 | mybatis-plus |
+| mybatis-plus-boot-starter | 2.3.3 | mybatis-plus2 |
 | maven | 3.5.4 | maven3 |
 | swagger | 2.9.2 | swagger2 |
 
