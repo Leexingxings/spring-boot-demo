@@ -10,14 +10,19 @@
         <result column="email" property="email"/>
     </resultMap>
 
+    <!--查询用户列表-->
     <select id="selectUserList" resultType="com.jason.demo.entity.user.User">
-        select * from users where 1=1
+        select * from users where 1 = 1
         <if test="name != null and name != ''" >
-            and name = #{name,jdbcType=VARCHAR}
+            and name = #{name, jdbcType=VARCHAR}
         </if>
     </select>
 
-    <select id="selectPageVo" resultType="com.jason.demo.entity.user.User">
-        SELECT id,name FROM user
+    <!--分页查询列表-->
+    <select id="selectUserPageVo" resultType="com.jason.demo.entity.user.User">
+        SELECT * FROM users WHERE 1 = 1
+        <if test="map.name != null and map.name != ''" >
+            and name = #{map.name, jdbcType=VARCHAR}
+        </if>
     </select>
 </mapper>

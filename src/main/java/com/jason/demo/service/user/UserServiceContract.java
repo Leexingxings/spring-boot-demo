@@ -1,6 +1,6 @@
 package com.jason.demo.service.user;
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.jason.demo.base.ResponseData;
 import com.jason.demo.entity.user.User;
 import com.jason.demo.request.user.QueryByNameRequest;
@@ -22,7 +22,7 @@ public interface UserServiceContract extends IService<User> {
      */
     ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(QueryUserAllRequest queryUserAllRequest);
 
-    User queryByName(QueryByNameRequest queryByNameRequest);
+    ResponseData queryByName(QueryByNameRequest queryByNameRequest);
 
     boolean addUser(User user);
 }

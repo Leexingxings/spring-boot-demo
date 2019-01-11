@@ -16,13 +16,12 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <mybatis-plus-boot-starter.version>2.3.3</mybatis-plus-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.0-RELEASE</mybatis-plus-boot-starter.version>
         <fastjson.version>1.2.54</fastjson.version>
         <mysql-connector-java.version>8.0.13</mysql-connector-java.version>
         <lombok.version>1.18.4</lombok.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
-        <mybatis-plus-support.version>2.3.3</mybatis-plus-support.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
     </properties>
 
@@ -69,11 +68,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox-swagger-ui.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-support</artifactId>
-            <version>${mybatis-plus-support.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

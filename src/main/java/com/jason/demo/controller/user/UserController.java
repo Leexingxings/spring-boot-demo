@@ -37,7 +37,7 @@ public class UserController extends BaseController {
     @RequestMapping(method = RequestMethod.GET, value = "/queryUserAll")
     public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(@Valid QueryUserAllRequest queryUserAllRequest, BindingResult result) {
         if (result.hasErrors()) {
-            return getErrorResponse(result);
+            return this.getErrorResponse(result);
         }
 
         return userServiceContract.queryUserAll(queryUserAllRequest);
@@ -46,17 +46,15 @@ public class UserController extends BaseController {
     /**
      * 根据名称查找用户
      *
-     * @param name 名称
-     *
      * @return ResponseData
      */
     @ApiOperation(nickname = "queryByName",value = "根据名称查找用户")
     @RequestMapping(method = RequestMethod.GET, value = "/queryByName")
     public ResponseData queryByName(@Valid QueryByNameRequest queryByNameRequest, BindingResult result) {
         if (result.hasErrors()) {
-            return getErrorResponse(result);
+            return this.getErrorResponse(result);
         }
 
-        return null;
+        return userServiceContract.queryByName(queryByNameRequest);
     }
 }
