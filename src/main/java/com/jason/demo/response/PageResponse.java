@@ -1,10 +1,13 @@
 package com.jason.demo.response;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
 import java.util.List;
 
 @Data
+@ApiModel("分页数据")
 public class PageResponse<T> {
 
     @ApiModelProperty(value = "总数目")

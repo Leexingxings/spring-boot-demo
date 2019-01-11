@@ -1,9 +1,11 @@
 package com.jason.demo.response.user;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
+@ApiModel("查询所有用户返回数据")
 public class QueryUserAllResponse {
 
     /**
