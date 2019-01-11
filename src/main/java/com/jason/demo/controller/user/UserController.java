@@ -2,15 +2,12 @@ package com.jason.demo.controller.user;
 
 import com.jason.demo.base.ResponseData;
 import com.jason.demo.constants.BaseConstant;
-import com.jason.demo.constants.ResponseCode;
 import com.jason.demo.request.user.QueryByNameRequest;
+import com.jason.demo.request.user.QueryUserAllRequest;
 import com.jason.demo.response.PageResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
@@ -46,9 +43,20 @@ public class UserController {
             @RequestParam(value = "page", required = false, defaultValue = BaseConstant.PAGE) int page,
             @RequestParam(value = "size", required = false, defaultValue = BaseConstant.PAGE_SIZE) int size
     ) {
-        return userServiceContract.queryUserAll(page, size);
+        QueryUserAllRequest queryUserAllRequest = new QueryUserAllRequest();
+        queryUserAllRequest.setPage(page);
+        queryUserAllRequest.setSize(size);
+
+        return userServiceContract.queryUserAll(queryUserAllRequest);
     }
 
+    /**
+     * 根据名称查找用户
+     *
+     * @param name 名称
+     *
+     * @return ResponseData
+     */
     @ApiOperation(nickname = "queryByName",value = "根据名称查找用户")
     @ApiImplicitParam(name ="name", value = "名称", paramType = "query", required = true, dataType = "String")
     @RequestMapping(method = RequestMethod.GET, value = "/queryByName")

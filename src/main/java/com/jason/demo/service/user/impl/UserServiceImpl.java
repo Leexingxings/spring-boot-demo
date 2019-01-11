@@ -6,12 +6,12 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.jason.demo.base.ResponseData;
 import com.jason.demo.entity.user.User;
 import com.jason.demo.mapper.user.UserMapper;
+import com.jason.demo.request.user.QueryUserAllRequest;
 import com.jason.demo.response.PageResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
 import com.jason.demo.utils.ResponseUtil;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 /**
  * 用户服务实现类
@@ -27,9 +27,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * @return ResponseData
      */
     @Override
-    public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(int pageNum, int size) {
+    public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(QueryUserAllRequest queryUserAllRequest) {
         EntityWrapper<User> entityWrapper = new EntityWrapper<User>();
-        Page<User> pageUser = new Page<User>(pageNum, size);
+        Page<User> pageUser = new Page<User>(queryUserAllRequest.getPage(), queryUserAllRequest.getSize());
         Page<User> data = this.selectPage(pageUser, entityWrapper);
 
         return ResponseUtil.success(data);
