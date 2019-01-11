@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.jason.demo.base.ResponseData;
 import com.jason.demo.entity.user.User;
 import com.jason.demo.mapper.user.UserMapper;
+import com.jason.demo.request.user.QueryByNameRequest;
 import com.jason.demo.request.user.QueryUserAllRequest;
 import com.jason.demo.response.PageResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
@@ -41,23 +42,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public User queryByName(String name) {
+    public User queryByName(QueryByNameRequest queryByNameRequest) {
 
 //        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
 //        queryWrapper.eq("name", name);
 
         return null;
-
-//        List<User> userList = lsit(queryWrapper);
-//
-//        if (userList == null || userList.size() == 0) {
-//            return null;
-//        }
-//
-//        if (userList.size() > 1) {
-//            log.error("queryCityByName结果有多个，name={}", name);
-//        }
-//
-//        return userList.get(0);
     }
 }

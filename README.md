@@ -10,7 +10,7 @@
 
 - [x] 1. springboot2整合mybatis-plus
 - [x] 2. springboot2整合swagger2
-- [ ] 3. springboot2使用Validator校验
+- [x] 3. springboot2使用@Valid注解校验参数
 - [ ] 4. springboot2使用日志记录
 
 **updating...**

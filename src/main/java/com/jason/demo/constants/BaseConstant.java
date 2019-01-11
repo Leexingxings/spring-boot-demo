@@ -11,7 +11,7 @@ public class BaseConstant {
     // 启用
     public static final int STATUS_ENABLE = 1;
     // 分页单页数据条数
-    public static final String PAGE_SIZE = "10";
+    public static final int PAGE_SIZE = 10;
     // 页数
-    public static final String PAGE = "1";
+    public static final int PAGE = 1;
 }

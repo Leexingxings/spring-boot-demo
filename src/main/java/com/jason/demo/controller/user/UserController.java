@@ -1,7 +1,7 @@
 package com.jason.demo.controller.user;
 
 import com.jason.demo.base.ResponseData;
-import com.jason.demo.constants.BaseConstant;
+import com.jason.demo.controller.BaseController;
 import com.jason.demo.request.user.QueryByNameRequest;
 import com.jason.demo.request.user.QueryUserAllRequest;
 import com.jason.demo.response.PageResponse;
@@ -23,7 +23,7 @@ import javax.validation.Valid;
 @RequestMapping(value = "/api/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(tags = "用户管理")
 @RestController
-public class UserController {
+public class UserController extends BaseController {
 
     @Autowired
     private UserServiceContract userServiceContract;
@@ -34,18 +34,11 @@ public class UserController {
      * @return ResponseData
      */
     @ApiOperation(nickname = "queryUserAll",value = "查询所有用户")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name ="page", value = "页数", paramType = "query", required = false, dataType = "int"),
-            @ApiImplicitParam(name ="size", value = "单页数目", paramType = "query", required = false, dataType = "int")
-    })
     @RequestMapping(method = RequestMethod.GET, value = "/queryUserAll")
-    public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(
-            @RequestParam(value = "page", required = false, defaultValue = BaseConstant.PAGE) int page,
-            @RequestParam(value = "size", required = false, defaultValue = BaseConstant.PAGE_SIZE) int size
-    ) {
-        QueryUserAllRequest queryUserAllRequest = new QueryUserAllRequest();
-        queryUserAllRequest.setPage(page);
-        queryUserAllRequest.setSize(size);
+    public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(@Valid QueryUserAllRequest queryUserAllRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            return getErrorResponse(result);
+        }
 
         return userServiceContract.queryUserAll(queryUserAllRequest);
     }
@@ -58,10 +51,11 @@ public class UserController {
      * @return ResponseData
      */
     @ApiOperation(nickname = "queryByName",value = "根据名称查找用户")
-    @ApiImplicitParam(name ="name", value = "名称", paramType = "query", required = true, dataType = "String")
     @RequestMapping(method = RequestMethod.GET, value = "/queryByName")
-    public ResponseData queryByName(
-            @RequestParam(value = "name", required = true, defaultValue = "") String name) {
+    public ResponseData queryByName(@Valid QueryByNameRequest queryByNameRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            return getErrorResponse(result);
+        }
 
         return null;
     }
