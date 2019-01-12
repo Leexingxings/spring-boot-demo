@@ -8,8 +8,8 @@ import com.jason.demo.entity.user.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 用户表 Mapper 接口
@@ -33,5 +33,5 @@ public interface UserMapper extends BaseMapper<User> {
      * @param map hashmap
      * @return IPage<User>
      */
-    IPage<User> selectUserPageVo(Page page, Map map);
+    IPage<User> selectUserPageVo(Page page, HashMap<String, String> map);
 }

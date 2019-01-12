@@ -18,10 +18,19 @@ public interface UserServiceContract extends IService<User> {
     /**
      * 查看所有用户
      *
+     * @param queryUserAllRequest 查询数据
+     *
      * @return ResponseData
      */
     ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(QueryUserAllRequest queryUserAllRequest);
 
+    /**
+     * 根据名称获取记录
+     *
+     * @param queryByNameRequest 查询数据
+     *
+     * @return ResponseData
+     */
     ResponseData queryByName(QueryByNameRequest queryByNameRequest);
 
     boolean addUser(User user);

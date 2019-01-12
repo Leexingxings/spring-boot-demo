@@ -33,7 +33,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(QueryUserAllRequest queryUserAllRequest) {
         Page<User> pageUser = new Page<User>(queryUserAllRequest.getPage(), queryUserAllRequest.getSize());
-        Map map = new HashMap();
+        HashMap<String, String> map = new HashMap<String, String>();
         IPage<User> data = baseMapper.selectUserPageVo(pageUser, map);
 
         return ResponseUtil.success(data);
