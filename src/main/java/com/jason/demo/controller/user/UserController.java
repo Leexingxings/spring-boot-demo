@@ -4,7 +4,6 @@ import com.jason.demo.base.ResponseData;
 import com.jason.demo.controller.BaseController;
 import com.jason.demo.request.user.QueryByNameRequest;
 import com.jason.demo.request.user.QueryUserAllRequest;
-import com.jason.demo.response.ListResponse;
 import com.jason.demo.response.PageResponse;
 import com.jason.demo.response.user.QueryByNameResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
