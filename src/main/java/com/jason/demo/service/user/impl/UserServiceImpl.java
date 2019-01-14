@@ -1,5 +1,6 @@
 package com.jason.demo.service.user.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -9,13 +10,14 @@ import com.jason.demo.mapper.user.UserMapper;
 import com.jason.demo.request.user.QueryByNameRequest;
 import com.jason.demo.request.user.QueryUserAllRequest;
 import com.jason.demo.response.PageResponse;
+import com.jason.demo.response.user.QueryByNameResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
 import com.jason.demo.utils.ResponseUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * 用户服务实现类
@@ -28,7 +30,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     /**
      * 查询所有用户
      *
-     * @return ResponseData
+     * @param queryUserAllRequest 查询数据
+     *
+     * @return
      */
     @Override
     public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(QueryUserAllRequest queryUserAllRequest) {
@@ -39,12 +43,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return ResponseUtil.success(data);
     }
 
+    /**
+     * 根据名称查询用户
+     *
+     * @param queryByNameRequest 查询数据
+     *
+     * @return
+     */
     @Override
-    public ResponseData queryByName(QueryByNameRequest queryByNameRequest) {
-//        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("name", name);
+    public ResponseData<QueryByNameResponse> queryByName(QueryByNameRequest queryByNameRequest) {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("name", queryByNameRequest.getName());
+        List<User> data = this.list(queryWrapper);
 
-        return null;
+        return ResponseUtil.success(data);
     }
 
     @Override

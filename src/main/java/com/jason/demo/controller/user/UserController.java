@@ -4,7 +4,9 @@ import com.jason.demo.base.ResponseData;
 import com.jason.demo.controller.BaseController;
 import com.jason.demo.request.user.QueryByNameRequest;
 import com.jason.demo.request.user.QueryUserAllRequest;
+import com.jason.demo.response.ListResponse;
 import com.jason.demo.response.PageResponse;
+import com.jason.demo.response.user.QueryByNameResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
 import io.swagger.annotations.*;
@@ -50,7 +52,7 @@ public class UserController extends BaseController {
      */
     @ApiOperation(nickname = "queryByName",value = "根据名称查找用户")
     @RequestMapping(method = RequestMethod.GET, value = "/queryByName")
-    public ResponseData queryByName(@Valid QueryByNameRequest queryByNameRequest, BindingResult result) {
+    public ResponseData<QueryByNameResponse> queryByName(@Valid QueryByNameRequest queryByNameRequest, BindingResult result) {
         if (result.hasErrors()) {
             return this.getErrorResponse(result);
         }
