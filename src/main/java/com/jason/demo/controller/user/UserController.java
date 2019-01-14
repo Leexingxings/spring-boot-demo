@@ -2,6 +2,7 @@ package com.jason.demo.controller.user;
 
 import com.jason.demo.base.ResponseData;
 import com.jason.demo.controller.BaseController;
+import com.jason.demo.request.user.AddUserRequest;
 import com.jason.demo.request.user.QueryByNameRequest;
 import com.jason.demo.request.user.QueryUserAllRequest;
 import com.jason.demo.response.PageResponse;
@@ -34,7 +35,7 @@ public class UserController extends BaseController {
      *
      * @return ResponseData
      */
-    @ApiOperation(nickname = "queryUserAll",value = "查询所有用户")
+    @ApiOperation(nickname = "queryUserAll", value = "查询所有用户")
     @RequestMapping(method = RequestMethod.GET, value = "/queryUserAll")
     public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(@Valid QueryUserAllRequest queryUserAllRequest, BindingResult result) {
         if (result.hasErrors()) {
@@ -49,7 +50,7 @@ public class UserController extends BaseController {
      *
      * @return ResponseData
      */
-    @ApiOperation(nickname = "queryByName",value = "根据名称查找用户")
+    @ApiOperation(nickname = "queryByName", value = "根据名称查找用户")
     @RequestMapping(method = RequestMethod.GET, value = "/queryByName")
     public ResponseData<QueryByNameResponse> queryByName(@Valid QueryByNameRequest queryByNameRequest, BindingResult result) {
         if (result.hasErrors()) {
@@ -57,5 +58,16 @@ public class UserController extends BaseController {
         }
 
         return userServiceContract.queryByName(queryByNameRequest);
+    }
+
+    @ApiOperation(nickname = "addUser", value = "添加用户")
+    @RequestMapping(method = RequestMethod.POST, value = "/addUser")
+    public ResponseData addUser(@RequestBody @Valid AddUserRequest addUserRequest, BindingResult result) {
+        if (result.hasErrors()) {
+            System.out.println(result);
+            return this.getErrorResponse(result);
+        }
+
+        return null;
     }
 }

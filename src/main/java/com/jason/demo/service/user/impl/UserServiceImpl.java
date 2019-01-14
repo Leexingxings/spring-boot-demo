@@ -60,7 +60,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public boolean addUser(User user) {
-        return false;
+    public ResponseData addUser(User user) {
+        return null;
     }
 }

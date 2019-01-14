@@ -34,5 +34,5 @@ public interface UserServiceContract extends IService<User> {
      */
     ResponseData<QueryByNameResponse> queryByName(QueryByNameRequest queryByNameRequest);
 
-    boolean addUser(User user);
+    ResponseData addUser(User user);
 }
