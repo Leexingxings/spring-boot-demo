@@ -9,6 +9,7 @@ import com.jason.demo.response.PageResponse;
 import com.jason.demo.response.user.QueryByNameResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
+import com.jason.demo.utils.ResponseUtil;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -62,12 +63,11 @@ public class UserController extends BaseController {
 
     @ApiOperation(nickname = "addUser", value = "添加用户")
     @RequestMapping(method = RequestMethod.POST, value = "/addUser")
-    public ResponseData addUser(@RequestBody @Valid AddUserRequest addUserRequest, BindingResult result) {
+    public ResponseData addUser(@Valid @RequestBody AddUserRequest addUserRequest, BindingResult result) {
         if (result.hasErrors()) {
-            System.out.println(result);
             return this.getErrorResponse(result);
         }
 
-        return null;
+        return ResponseUtil.success();
     }
 }
