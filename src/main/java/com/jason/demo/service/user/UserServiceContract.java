@@ -3,6 +3,7 @@ package com.jason.demo.service.user;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jason.demo.base.ResponseData;
 import com.jason.demo.entity.user.User;
+import com.jason.demo.request.user.AddUserRequest;
 import com.jason.demo.request.user.QueryByNameRequest;
 import com.jason.demo.request.user.QueryUserAllRequest;
 import com.jason.demo.response.PageResponse;
@@ -34,5 +35,11 @@ public interface UserServiceContract extends IService<User> {
      */
     ResponseData<QueryByNameResponse> queryByName(QueryByNameRequest queryByNameRequest);
 
-    ResponseData addUser(User user);
+    /**
+     * 添加用户
+     *
+     * @param addUserRequest 添加用户数据
+     * @return
+     */
+    ResponseData addUser(AddUserRequest addUserRequest);
 }

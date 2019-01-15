@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jason.demo.base.ResponseData;
 import com.jason.demo.entity.user.User;
 import com.jason.demo.mapper.user.UserMapper;
+import com.jason.demo.request.user.AddUserRequest;
 import com.jason.demo.request.user.QueryByNameRequest;
 import com.jason.demo.request.user.QueryUserAllRequest;
 import com.jason.demo.response.PageResponse;
@@ -14,6 +15,7 @@ import com.jason.demo.response.user.QueryByNameResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
 import com.jason.demo.utils.ResponseUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -31,8 +33,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * 查询所有用户
      *
      * @param queryUserAllRequest 查询数据
-     *
-     * @return
+     * @return ResponseData<PageResponse < QueryUserAllResponse>>
      */
     @Override
     public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(QueryUserAllRequest queryUserAllRequest) {
@@ -47,8 +48,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * 根据名称查询用户
      *
      * @param queryByNameRequest 查询数据
-     *
-     * @return
+     * @return ResponseData<QueryByNameResponse>
      */
     @Override
     public ResponseData<QueryByNameResponse> queryByName(QueryByNameRequest queryByNameRequest) {
@@ -59,8 +59,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return ResponseUtil.success(data);
     }
 
+    /**
+     * 添加用户
+     *
+     * @param addUserRequest 添加用户数据
+     * @return ResponseData
+     */
     @Override
-    public ResponseData addUser(User user) {
-        return null;
+    public ResponseData addUser(AddUserRequest addUserRequest) {
+
+        User user = new User();
+        BeanUtils.copyProperties(addUserRequest, user);
+        this.save(user);
+
+        return ResponseUtil.success();
     }
 }

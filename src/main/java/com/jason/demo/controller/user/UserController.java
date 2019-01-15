@@ -1,6 +1,7 @@
 package com.jason.demo.controller.user;
 
 import com.jason.demo.base.ResponseData;
+import com.jason.demo.constants.ResponseCode;
 import com.jason.demo.controller.BaseController;
 import com.jason.demo.request.user.AddUserRequest;
 import com.jason.demo.request.user.QueryByNameRequest;
@@ -63,11 +64,21 @@ public class UserController extends BaseController {
 
     @ApiOperation(nickname = "addUser", value = "添加用户")
     @RequestMapping(method = RequestMethod.POST, value = "/addUser")
-    public ResponseData addUser(@Valid @RequestBody AddUserRequest addUserRequest, BindingResult result) {
+    public ResponseData addUser(@RequestBody @Valid AddUserRequest addUserRequest, BindingResult result) {
         if (result.hasErrors()) {
+            System.out.println("hello");
             return this.getErrorResponse(result);
         }
 
-        return ResponseUtil.success();
+        try {
+            return userServiceContract.addUser(addUserRequest);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseData.build(
+                    ResponseCode.CREATE_FAILURE.getValue(),
+                    ResponseCode.CREATE_FAILURE.getMessage()
+            );
+        }
     }
 }

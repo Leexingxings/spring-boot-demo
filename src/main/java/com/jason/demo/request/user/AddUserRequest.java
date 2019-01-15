@@ -26,7 +26,7 @@ public class AddUserRequest {
     private String email;
 
     @ApiModelProperty(value = "年龄", required = true, dataType = "Integer")
-    @Range(min = 0, max = 200, message = "年龄超出合法值区间")
+    @Range(min = 0, max = 200, message = "年龄超出合法区间值")
     @NotNull(message = "年龄必须不为null")
     private Integer age;
 }
