@@ -20,7 +20,7 @@ public class AddUserRequest {
     private String name;
 
     @ApiModelProperty(value = "邮箱", required = true, dataType = "String")
-    @Email
+    @Email(message = "邮箱不合法")
     @NotEmpty(message = "邮箱必须不为null且不为空")
     @Length(min = 0, max = 100)
     private String email;
