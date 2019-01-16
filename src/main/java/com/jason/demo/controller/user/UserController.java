@@ -10,7 +10,6 @@ import com.jason.demo.response.PageResponse;
 import com.jason.demo.response.user.QueryByNameResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
-import com.jason.demo.utils.ResponseUtil;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -62,11 +61,17 @@ public class UserController extends BaseController {
         return userServiceContract.queryByName(queryByNameRequest);
     }
 
+    /**
+     * 添加用户
+     *
+     * @param addUserRequest
+     * @param result
+     * @return
+     */
     @ApiOperation(nickname = "addUser", value = "添加用户")
     @RequestMapping(method = RequestMethod.POST, value = "/addUser")
     public ResponseData addUser(@RequestBody @Valid AddUserRequest addUserRequest, BindingResult result) {
         if (result.hasErrors()) {
-            System.out.println("hello");
             return this.getErrorResponse(result);
         }
 

@@ -33,7 +33,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * 查询所有用户
      *
      * @param queryUserAllRequest 查询数据
-     * @return ResponseData<PageResponse < QueryUserAllResponse>>
+     * @return ResponseData<PageResponse   <   QueryUserAllResponse>>
      */
     @Override
     public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(QueryUserAllRequest queryUserAllRequest) {
@@ -70,6 +70,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         User user = new User();
         BeanUtils.copyProperties(addUserRequest, user);
+        // 检测用户名是否重复
+        QueryWrapper<User> queryByName = new QueryWrapper<>();
+        queryByName.eq("name", user.getName());
+
+        User nameRes = this.getOne(queryByName);
+        if (nameRes != null) {
+            return ResponseUtil.fail("已存在相同名称");
+        }
         this.save(user);
 
         return ResponseUtil.success();
