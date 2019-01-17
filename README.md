@@ -8,11 +8,14 @@
 | maven | 3.5.4 | maven3 |
 | swagger | 2.9.2 | swagger2 |
 
-- [x] 1. springboot2整合mybatis-plus
-- [x] 2. springboot2整合swagger2
-- [x] 3. springboot2使用@Valid注解校验参数
+- [x] 1. 整合mybatis-plus
+- [x] 2. 整合swagger2
+- [x] 3. 使用@Valid注解校验参数
 - [x] 4. 使用分页插件查询数据
-- [ ] 5. springboot2使用日志记录
+- [x] 5. 使用log4j2记录日志
+- [ ] 6. 使用Flyway管理数据库版本
+- [ ] 7.使用@Scheduled创建定时任务
+- [ ] 8. 使用RabbitMQ
 
 **updating...**
 
