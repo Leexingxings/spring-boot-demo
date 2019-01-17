@@ -15,6 +15,8 @@ import com.jason.demo.response.user.QueryByNameResponse;
 import com.jason.demo.response.user.QueryUserAllResponse;
 import com.jason.demo.service.user.UserServiceContract;
 import com.jason.demo.utils.ResponseUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,8 @@ import java.util.List;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserServiceContract {
 
+    private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     /**
      * 查询所有用户
      *
@@ -37,6 +41,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      */
     @Override
     public ResponseData<PageResponse<QueryUserAllResponse>> queryUserAll(QueryUserAllRequest queryUserAllRequest) {
+        logger.info("开始进行数据库查询操作...");
         Page<User> pageUser = new Page<User>(queryUserAllRequest.getPage(), queryUserAllRequest.getSize());
         HashMap<String, String> map = new HashMap<String, String>();
         IPage<User> data = baseMapper.selectUserPageVo(pageUser, map);

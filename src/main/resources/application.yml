@@ -29,3 +29,8 @@ mybatis-plus:
         log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
         cache-enabled: false
         map-underscore-to-camel-case: true  #使用驼峰法映射属性
+
+    logging:
+        config: log4j2.xml
+        level:
+            com.jason.demo: trace
