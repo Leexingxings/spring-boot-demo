@@ -23,6 +23,7 @@
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
+        <flyway-core.version>5.2.4</flyway-core.version>
     </properties>
 
     <dependencies>
@@ -85,6 +86,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <!--引入Flyway-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway-core.version}</version>
         </dependency>
     </dependencies>
 
