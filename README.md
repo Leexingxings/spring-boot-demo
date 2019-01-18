@@ -13,12 +13,14 @@
 - [x] 3. 使用@Valid注解校验参数
 - [x] 4. 使用分页插件查询数据
 - [x] 5. 使用log4j2记录日志
-- [ ] 6. 使用Flyway管理数据库版本
+- [x] 6. 使用Flyway管理数据库版本
 - [ ] 7.使用@Scheduled创建定时任务
 - [ ] 8. 使用RabbitMQ
 
 **updating...**
 
 * 此项目是作者自学java的心路历程，如发现错误请联系作者...
+
+* [初始化操作请查看wiki](https://gitee.com/jason_stars/demo/wikis)
 
 * [new issue](https://gitee.com/jason_stars/demo/issues)
