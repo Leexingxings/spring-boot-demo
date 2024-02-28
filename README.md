@@ -19,8 +19,8 @@
 
 **updating...**
 
-* 此项目是作者自学java的心路历程，如发现错误请联系作者...
+* 如发现错误请联系作者...
 
-* [初始化操作请查看wiki](https://gitee.com/jason_stars/demo/wikis)
+* [初始化操作请查看wiki](https://github.com/Leexingxings/spring-boot-demo/wiki/%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93)
 
-* [new issue](https://gitee.com/jason_stars/demo/issues)
+* [new issue](https://github.com/Leexingxings/spring-boot-demo/issues)
